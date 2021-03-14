@@ -27,7 +27,9 @@ class PositionalEntity(Entity):
     ###################
 
     def __eq__(self, other):
-        return (self.x, self.y) == (other.x, other.y)
+        if isinstance(other, PositionalEntity):
+            return (self.x, self.y) == (other.x, other.y)
+        return False
 
     def __ne__(self, other):
         return not(self == other)
